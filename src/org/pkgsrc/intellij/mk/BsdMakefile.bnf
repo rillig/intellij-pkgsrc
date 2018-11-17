@@ -1,0 +1,23 @@
+{
+    parserClass="org.pkgsrc.intellij.mk.parser.BsdMakefileParser"
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix="BsdMakefile"
+    psiImplClassSuffix="Impl"
+    psiPackage="org.pkgsrc.intellij.mk.psi"
+    psiImplPackage="org.pkgsrc.intellij.mk.psi.impl"
+
+    elementTypeHolderClass="org.pkgsrc.intellij.mk.psi.BsdMakefileTypes"
+    elementTypeClass="org.pkgsrc.intellij.mk.psi.BsdMakefileElementType"
+    tokenTypeClass="org.pkgsrc.intellij.mk.psi.BsdMakefileTokenType"
+}
+
+file ::= line*
+
+line ::= comment_line | empty_line | other_line
+
+comment_line ::= COMMENT_START OTHER? NEWLINE
+
+empty_line ::= NEWLINE
+
+other_line ::= OTHER NEWLINE

@@ -16,6 +16,9 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="org.pkgsrc.intellij.PkgsrcFileTypes"/>
+        <lang.parserDefinition
+                language="Pkgsrc Makefile"
+                implementationClass="org.pkgsrc.intellij.mk.parser.BsdMakefileParserDefinition"/>
     </extensions>
 
     <actions>
