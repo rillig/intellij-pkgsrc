@@ -1,0 +1,25 @@
+<idea-plugin>
+    <id>org.pkgsrc.intellij</id>
+    <name>pkgsrc package management</name>
+    <version>1.0</version>
+    <vendor email="rillig@NetBSD.org" url="https://www.pkgsrc.org/">pkgsrc</vendor>
+
+    <description><![CDATA[
+      Navigate through pkgsrc packages and BSD-style Makefiles.
+    ]]></description>
+
+    <change-notes>This is the first version, therefore no changes yet.</change-notes>
+
+    <idea-version since-build="182.0"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileTypeFactory implementation="org.pkgsrc.intellij.PkgsrcFileTypeFactory"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+</idea-plugin>
