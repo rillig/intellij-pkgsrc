@@ -21,6 +21,7 @@
         <lang.syntaxHighlighterFactory
                 language="Pkgsrc Makefile"
                 implementationClass="org.pkgsrc.intellij.mk.BsdMakefileSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="org.pkgsrc.intellij.mk.BsdMakefileColorSettingsPage"/>
 
     </extensions>
 

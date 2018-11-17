@@ -3,6 +3,7 @@ package org.pkgsrc.intellij.mk;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
 import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
+import com.intellij.openapi.options.colors.AttributesDescriptor;
 
 public interface BsdMakefileColors {
 
@@ -37,4 +38,15 @@ public interface BsdMakefileColors {
     TextAttributesKey OTHER = TextAttributesKey.createTextAttributesKey(
             "BSD_MAKE_TEXT",
             HighlighterColors.TEXT);
+
+    AttributesDescriptor[] DESCRIPTORS = {
+            new AttributesDescriptor("Comment", COMMENT),
+            new AttributesDescriptor("Directive", DIRECTIVE),
+            new AttributesDescriptor("Shell command", SHELL),
+            new AttributesDescriptor("Makefile variable definition", MKVARDEF),
+            new AttributesDescriptor("Makefile variable use", MKVARUSE),
+            new AttributesDescriptor("Shell variable definition", SHVARDEF),
+            new AttributesDescriptor("Shell variable use", SHVARUSE),
+            new AttributesDescriptor("Other", OTHER)};
+
 }
