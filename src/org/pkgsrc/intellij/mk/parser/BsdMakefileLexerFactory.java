@@ -71,6 +71,9 @@ public class BsdMakefileLexerFactory {
 
         protected void skipLine() {
             while (pos < myEndOffset && myBuffer.charAt(pos) != '\n') {
+                if (pos + 1 < myEndOffset && myBuffer.charAt(pos) == '\\') {
+                    pos++;
+                }
                 pos++;
             }
             if (pos < myEndOffset) {
