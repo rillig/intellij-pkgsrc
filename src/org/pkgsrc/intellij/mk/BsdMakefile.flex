@@ -16,21 +16,28 @@ import org.pkgsrc.intellij.mk.psi.BsdMakefileTypes;
 %eof}
 
 COMMENT_START = "#"
+COMMENT = [^\n]+
 NEWLINE = [\n]
 OTHER = [^#\n]+
 
-%state WAITING_VALUE
+%state COMMENT
 
 %%
 
-{COMMENT_START} {
+<YYINITIAL> {COMMENT_START} {
+    yybegin(COMMENT);
     return BsdMakefileTypes.COMMENT_START;
 }
 
-{OTHER} {
-    return BsdMakefileTypes.REST;
+<COMMENT> {COMMENT} {
+    return BsdMakefileTypes.COMMENT;
+}
+
+<YYINITIAL> {OTHER} {
+    return BsdMakefileTypes.OTHER;
 }
 
 {NEWLINE} {
+    yybegin(YYINITIAL);
     return BsdMakefileTypes.NEWLINE;
 }

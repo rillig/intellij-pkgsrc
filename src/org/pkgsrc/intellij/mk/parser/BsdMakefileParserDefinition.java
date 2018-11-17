@@ -19,7 +19,8 @@ import org.pkgsrc.intellij.mk.psi.BsdMakefileTypes;
 public class BsdMakefileParserDefinition implements ParserDefinition {
 
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
-    public static final TokenSet COMMENTS = TokenSet.create(BsdMakefileTypes.COMMENT_LINE);
+    public static final TokenSet COMMENTS = TokenSet.create(
+            BsdMakefileTypes.COMMENT_START, BsdMakefileTypes.COMMENT);
 
     public static final IFileElementType FILE = new IFileElementType(PkgsrcLanguages.MAKEFILE);
 

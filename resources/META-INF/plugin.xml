@@ -4,9 +4,7 @@
     <version>1.0</version>
     <vendor email="rillig@NetBSD.org" url="https://www.pkgsrc.org/">pkgsrc</vendor>
 
-    <description><![CDATA[
-      Navigate through pkgsrc packages and BSD-style Makefiles.
-    ]]></description>
+    <description>Navigate through pkgsrc packages and BSD-style Makefiles.</description>
 
     <change-notes>This is the first version, therefore no changes yet.</change-notes>
 
@@ -16,9 +14,14 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <fileTypeFactory implementation="org.pkgsrc.intellij.PkgsrcFileTypes"/>
+
         <lang.parserDefinition
                 language="Pkgsrc Makefile"
                 implementationClass="org.pkgsrc.intellij.mk.parser.BsdMakefileParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="Pkgsrc Makefile"
+                implementationClass="org.pkgsrc.intellij.mk.BsdMakefileSyntaxHighlighterFactory"/>
+
     </extensions>
 
     <actions>
