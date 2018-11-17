@@ -12,13 +12,16 @@
     tokenTypeClass="org.pkgsrc.intellij.mk.psi.BsdMakefileTokenType"
 }
 
-file ::= line*
+file                ::= line*
 
-line ::= comment_line | empty_line | other_line
+line                ::= comment_line | empty_line | directive_line | other_line
 
-comment_line ::= COMMENT_START COMMENT? NEWLINE
+comment_line        ::= COMMENT_START COMMENT? NEWLINE
 
-empty_line ::= NEWLINE
+empty_line          ::= NEWLINE
 
-other_line ::= OTHER NEWLINE
-| OTHER COMMENT_START COMMENT? NEWLINE
+directive_line      ::= DIRECTIVE OTHER NEWLINE
+                    |   DIRECTIVE OTHER COMMENT_START COMMENT? NEWLINE
+
+other_line          ::= OTHER NEWLINE
+                    |   OTHER COMMENT_START COMMENT? NEWLINE

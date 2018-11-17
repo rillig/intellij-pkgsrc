@@ -19,6 +19,14 @@ COMMENT_START = "#"
 COMMENT = [^\n]+
 NEWLINE = [\n]
 OTHER = [^#\n]+
+HSPACE = [ \t]*
+
+VARUSE_BRACE_START = "${"
+VARUSE_BRACE_END = "}"
+VARUSE_PAREN_START = "$("
+VARUSE_PAREN_END = ")"
+
+DIRECTIVE = "." {HSPACE} \w+
 
 %state COMMENT
 
@@ -31,6 +39,10 @@ OTHER = [^#\n]+
 
 <COMMENT> {COMMENT} {
     return BsdMakefileTypes.COMMENT;
+}
+
+<YYINITIAL> {DIRECTIVE} {
+    return BsdMakefileTypes.DIRECTIVE;
 }
 
 <YYINITIAL> {OTHER} {
