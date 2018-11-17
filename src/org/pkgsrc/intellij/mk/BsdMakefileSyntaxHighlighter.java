@@ -5,7 +5,7 @@ import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.annotations.NotNull;
-import org.pkgsrc.intellij.mk.parser.BsdMakefileLexerFactory;
+import org.pkgsrc.intellij.mk.parser.BsdMakefileLexer;
 import org.pkgsrc.intellij.mk.psi.BsdMakefileTypes;
 
 import java.util.HashMap;
@@ -27,7 +27,7 @@ public class BsdMakefileSyntaxHighlighter extends SyntaxHighlighterBase {
     @NotNull
     @Override
     public Lexer getHighlightingLexer() {
-        return BsdMakefileLexerFactory.newLexer();
+        return new BsdMakefileLexer();
     }
 
     @NotNull

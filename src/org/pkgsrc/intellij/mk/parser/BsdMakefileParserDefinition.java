@@ -26,7 +26,7 @@ public class BsdMakefileParserDefinition implements ParserDefinition {
     @NotNull
     @Override
     public Lexer createLexer(Project project) {
-        return BsdMakefileLexerFactory.newLexer();
+        return new BsdMakefileLexer();
     }
 
     @Override
