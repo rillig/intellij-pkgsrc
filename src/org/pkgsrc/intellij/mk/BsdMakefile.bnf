@@ -14,14 +14,14 @@
 
 file                ::= line*
 
-line                ::= comment_line | empty_line | directive_line | other_line
+line                ::= comment_line | empty_line | directive_line | shell_line | other_line
 
-comment_line        ::= COMMENT_START COMMENT? NEWLINE
+comment_line        ::= T_COMMENT_LINE
 
-empty_line          ::= NEWLINE
+empty_line          ::= T_EMPTY_LINE
 
-directive_line      ::= DIRECTIVE OTHER NEWLINE
-                    |   DIRECTIVE OTHER COMMENT_START COMMENT? NEWLINE
+directive_line      ::= T_DIRECTIVE_LINE
 
-other_line          ::= OTHER NEWLINE
-                    |   OTHER COMMENT_START COMMENT? NEWLINE
+shell_line          ::= T_SHELL_LINE
+
+other_line          ::= T_OTHER_LINE

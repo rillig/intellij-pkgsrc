@@ -1,13 +1,11 @@
 package org.pkgsrc.intellij.mk;
 
 import com.intellij.lexer.Lexer;
-import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.HighlighterColors;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.annotations.NotNull;
-import org.pkgsrc.intellij.mk.parser.BsdMakefileLexerAdapter;
+import org.pkgsrc.intellij.mk.parser.BsdMakefileLexerFactory;
 import org.pkgsrc.intellij.mk.psi.BsdMakefileTypes;
 
 import java.util.HashMap;
@@ -15,24 +13,13 @@ import java.util.Map;
 
 public class BsdMakefileSyntaxHighlighter extends SyntaxHighlighterBase {
 
-    public static final TextAttributesKey COMMENT = TextAttributesKey.createTextAttributesKey(
-            "BSD_MAKE_COMMENT",
-            DefaultLanguageHighlighterColors.LINE_COMMENT);
-
-    public static final TextAttributesKey DIRECTIVE = TextAttributesKey.createTextAttributesKey(
-            "BSD_MAKE_DIRECTIVE",
-            DefaultLanguageHighlighterColors.KEYWORD);
-
-    public static final TextAttributesKey OTHER = TextAttributesKey.createTextAttributesKey(
-            "BSD_MAKE_OTHER",
-            HighlighterColors.TEXT);
-
 
     private static final Map<IElementType, TextAttributesKey[]> map = new ColorMapperBuilder()
-            .put(BsdMakefileTypes.COMMENT_START, COMMENT)
-            .put(BsdMakefileTypes.COMMENT, COMMENT)
-            .put(BsdMakefileTypes.OTHER, OTHER)
-            .put(BsdMakefileTypes.DIRECTIVE, DIRECTIVE)
+            .put(BsdMakefileTypes.T_COMMENT_LINE, BsdMakefileColors.COMMENT)
+            .put(BsdMakefileTypes.T_DIRECTIVE_LINE, BsdMakefileColors.DIRECTIVE)
+            .put(BsdMakefileTypes.T_SHELL_LINE, BsdMakefileColors.SHELL)
+            .put(BsdMakefileTypes.T_OTHER_LINE, BsdMakefileColors.OTHER)
+            .put(BsdMakefileTypes.T_EMPTY_LINE, BsdMakefileColors.OTHER)
             .build();
 
     private static final TextAttributesKey[] NONE = {};
@@ -40,7 +27,7 @@ public class BsdMakefileSyntaxHighlighter extends SyntaxHighlighterBase {
     @NotNull
     @Override
     public Lexer getHighlightingLexer() {
-        return new BsdMakefileLexerAdapter();
+        return BsdMakefileLexerFactory.newLexer();
     }
 
     @NotNull

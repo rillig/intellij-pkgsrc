@@ -19,15 +19,14 @@ import org.pkgsrc.intellij.mk.psi.BsdMakefileTypes;
 public class BsdMakefileParserDefinition implements ParserDefinition {
 
     public static final TokenSet WHITE_SPACES = TokenSet.create(TokenType.WHITE_SPACE);
-    public static final TokenSet COMMENTS = TokenSet.create(
-            BsdMakefileTypes.COMMENT_START, BsdMakefileTypes.COMMENT);
+    public static final TokenSet COMMENTS = TokenSet.create(BsdMakefileTypes.T_COMMENT_LINE);
 
     public static final IFileElementType FILE = new IFileElementType(PkgsrcLanguages.MAKEFILE);
 
     @NotNull
     @Override
     public Lexer createLexer(Project project) {
-        return new BsdMakefileLexerAdapter();
+        return BsdMakefileLexerFactory.newLexer();
     }
 
     @Override
