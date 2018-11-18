@@ -4,6 +4,10 @@ import com.intellij.psi.tree.IElementType
 import org.pkgsrc.intellij.mk.psi.BsdMakefileTypes
 import org.pkgsrc.intellij.util.SkipLexer
 
+// If the BsdMakefileTypes above cannot be found, open BsdMakefile.bnf
+// and press Ctrl+Shift+G to generate the parser code.
+// And if that doesn't work, install the Grammar-Kit plugin first.
+
 class BsdMakefileLexer : SkipLexer() {
 
     override fun nextToken(): IElementType {
