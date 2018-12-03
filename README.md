@@ -1,5 +1,8 @@
 This [IntelliJ](https://www.jetbrains.com/idea/) plugin provides
-very basic and very limited support for developing [pkgsrc](https://www.pkgsrc.org/) packages.
+very basic and very limited support for developing
+[pkgsrc](https://www.pkgsrc.org/) packages.
+
+![Screenshot of the pkgsrc plugin](artwork/screenshot.png)
 
 Currently implemented is:
 
